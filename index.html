@@ -441,7 +441,7 @@ function newQuiz() {
   const items = shuffle(pool).slice(0, 10).map(w => {
     const kind = Math.random() < .5 ? 'native' : 'target';      // 보기 종류
     const ans = optText(w, kind), seen = new Set([ans]), opts = [ans];
-    const cand = shuffle(WORDS.filter(x => x.id !== w.id)).sort((a, b) => (b.cat === w.cat) - (a.cat === w.cat));
+    const pk = kind === 'native' ? 'target' : 'native', cand = shuffle(WORDS.filter(x => x.id !== w.id && optText(x, pk) !== optText(w, pk))).sort((a, b) => (b.cat === w.cat) - (a.cat === w.cat));
     for (const x of cand) { const s = optText(x, kind); if (!seen.has(s)) { seen.add(s); opts.push(s); } if (opts.length === 4) break; }
     return { id: w.id, kind, opts: shuffle(opts), ans, pick: null };
   });
