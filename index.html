@@ -22,14 +22,14 @@
 :root{--bg:#F2F4F7;--surface:#FFFFFF;--surface2:#F7F8FA;--ink:#191F28;--ink2:#333D4B;--sub:#66707D;--line:#E3E7EC;--line2:#CBD2DA;
 --pri:#2F6FED;--pri2:#1E58CF;--pri-soft:#EAF1FE;--ko:#2F6FED;--ko-soft:#EAF1FE;--ja:#D7353D;--ja-soft:#FDECEC;
 --good:#12A06A;--good2:#0B8456;--good-soft:#E3F6EE;--warn:#F0A020;--warn-ink:#94570A;--warn-soft:#FFF3DC;--bad:#D7353D;--bad-soft:#FDECEC;
---mark:#FFE071;--sh:0 1px 2px rgba(16,24,40,.05),0 2px 10px rgba(16,24,40,.06);
+--mark:#FFE071;--lv1:#0E9F6E;--lv2:#2F6FED;--lv3:#7C4DFF;--sh:0 1px 2px rgba(16,24,40,.05),0 2px 10px rgba(16,24,40,.06);
 --fko:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;--fja:"Noto Sans JP","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;--fui:var(--fko);color-scheme:light}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){color-scheme:dark;--bg:#0F1216;--surface:#181C22;--surface2:#1F242B;--ink:#F1F3F5;--ink2:#D3D8DE;--sub:#9AA3AE;--line:#2A3038;--line2:#3B434D;
 --pri:#4D8BF5;--pri2:#2F6FED;--pri-soft:rgba(77,139,245,.16);--ko:#79A8FF;--ko-soft:rgba(121,168,255,.15);--ja:#FF7377;--ja-soft:rgba(255,115,119,.15);
---good:#2DBE83;--good2:#1E9B69;--good-soft:rgba(45,190,131,.15);--warn:#F5A524;--warn-ink:#FFC266;--warn-soft:rgba(245,165,36,.15);--bad:#FF7377;--bad-soft:rgba(255,115,119,.14);--mark:rgba(255,212,90,.42);--sh:0 1px 2px rgba(0,0,0,.3)}}
+--good:#2DBE83;--good2:#1E9B69;--good-soft:rgba(45,190,131,.15);--warn:#F5A524;--warn-ink:#FFC266;--warn-soft:rgba(245,165,36,.15);--bad:#FF7377;--bad-soft:rgba(255,115,119,.14);--mark:rgba(255,212,90,.42);--lv1:#2DBE83;--lv2:#79A8FF;--lv3:#B197FC;--sh:0 1px 2px rgba(0,0,0,.3)}}
 :root[data-theme=dark]{color-scheme:dark;--bg:#0F1216;--surface:#181C22;--surface2:#1F242B;--ink:#F1F3F5;--ink2:#D3D8DE;--sub:#9AA3AE;--line:#2A3038;--line2:#3B434D;
 --pri:#4D8BF5;--pri2:#2F6FED;--pri-soft:rgba(77,139,245,.16);--ko:#79A8FF;--ko-soft:rgba(121,168,255,.15);--ja:#FF7377;--ja-soft:rgba(255,115,119,.15);
---good:#2DBE83;--good2:#1E9B69;--good-soft:rgba(45,190,131,.15);--warn:#F5A524;--warn-ink:#FFC266;--warn-soft:rgba(245,165,36,.15);--bad:#FF7377;--bad-soft:rgba(255,115,119,.14);--mark:rgba(255,212,90,.42);--sh:0 1px 2px rgba(0,0,0,.3)}
+--good:#2DBE83;--good2:#1E9B69;--good-soft:rgba(45,190,131,.15);--warn:#F5A524;--warn-ink:#FFC266;--warn-soft:rgba(245,165,36,.15);--bad:#FF7377;--bad-soft:rgba(255,115,119,.14);--mark:rgba(255,212,90,.42);--lv1:#2DBE83;--lv2:#79A8FF;--lv3:#B197FC;--sh:0 1px 2px rgba(0,0,0,.3)}
 :root[data-ui=ja]{--fui:"Noto Sans JP","Noto Sans KR","Hiragino Sans","Yu Gothic",sans-serif}
 *{box-sizing:border-box;min-width:0}
 [hidden]{display:none!important}
@@ -250,11 +250,12 @@ mark{background:linear-gradient(transparent 55%,var(--mark) 55%);color:inherit;f
 .chip:hover{border-color:var(--pri)}
 .chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--surface);box-shadow:0 2px 0 var(--ink)}
 .chip .n{font-weight:600;opacity:.7;margin-left:.3rem}
-.lh{display:grid;grid-template-columns:.6rem minmax(0,1fr) minmax(0,1fr) 1.25rem;gap:.7rem;padding:.2rem .95rem .35rem;align-items:center}
+.lh{display:grid;grid-template-columns:.6rem minmax(0,1fr) minmax(0,1fr) 2rem 1.1rem;gap:.6rem;padding:.2rem .95rem .35rem;align-items:center}
+.lh .lvh{justify-self:center;font-size:.7rem;font-weight:800;color:var(--sub)}
 .cnt{font-size:.82rem;color:var(--sub);font-weight:700;margin:0}
 .rows{background:var(--surface);border:1px solid var(--line);border-radius:1.1rem;box-shadow:var(--sh);overflow:hidden}
 .row+.row{border-top:1px solid var(--line)}
-.rbtn{display:grid;grid-template-columns:.6rem minmax(0,1fr) minmax(0,1fr) 1.25rem;gap:.7rem;align-items:center;width:100%;text-align:left;background:none;border:0;padding:.7rem .95rem;line-height:1.4}
+.rbtn{display:grid;grid-template-columns:.6rem minmax(0,1fr) minmax(0,1fr) 2rem 1.1rem;gap:.6rem;align-items:center;width:100%;text-align:left;background:none;border:0;padding:.7rem .95rem;line-height:1.4}
 .rbtn:hover{background:var(--surface2)}
 .rbtn .w{font-size:1.15rem;font-weight:700}
 .rbtn small{display:block;font-size:.8rem;color:var(--sub);font-weight:500;margin-top:.05rem}
@@ -271,6 +272,16 @@ mark{background:linear-gradient(transparent 55%,var(--mark) 55%);color:inherit;f
 .dt-sp{display:flex;gap:.5rem;flex-wrap:wrap;padding-top:.3rem}
 .none{padding:1.2rem;text-align:center;color:var(--sub);margin:0}
 .legend{display:flex;gap:.9rem;flex-wrap:wrap;font-size:.75rem;color:var(--sub);font-weight:700;margin:.6rem .2rem 0}
+.lvb{display:inline-flex;align-items:center;justify-content:center;border:1.5px solid currentColor;border-radius:.4rem;background:var(--surface);font-weight:800;font-size:.68rem;line-height:1.25;padding:.05rem .3rem;white-space:nowrap;flex:none}
+.lvb.l1{color:var(--lv1)}.lvb.l2{color:var(--lv2)}.lvb.l3{color:var(--lv3)}
+.rbtn .lvb{justify-self:center}
+.pill.lvb{border-radius:999px;font-size:.76rem;padding:.06rem .55rem;line-height:1.45}
+.seg.lv4{grid-template-columns:repeat(4,minmax(0,1fr));container-type:inline-size}
+@container (max-width:18.6rem){.lv4 .lvn{display:none}}
+.lv4 button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.05rem;padding:.3rem .15rem;line-height:1.2}
+.lv4 button b{font-size:.88rem;font-weight:800;white-space:nowrap}
+.lv4 button small{font-size:.72rem;font-weight:700;opacity:.85;white-space:nowrap}
+.lv4 .l1 b{color:var(--lv1)}.lv4 .l2 b{color:var(--lv2)}.lv4 .l3 b{color:var(--lv3)}
 
 /* prefs */
 .pref{padding:.95rem 0;border-top:1px solid var(--line)}
@@ -357,6 +368,7 @@ const koForms = stem => { // 활용형 후보: 덥→더워, 바쁘→바빠, �
   const [c0, v, f] = d, pv = pre ? dec(pre.slice(-1)) : null, bright = !!pv && (pv[1] === 0 || pv[1] === 8);
   if (f === 17) { const b = com(c0, v, 0); out.push(pre + b + '워', pre + b + '와', pre + b + '웠'); }
   if (f === 7) out.push(pre + com(c0, v, 8));
+  if (f === 19) out.push(pre + com(c0, v, 0));
   if (f === 0) {
     if (last === '르' && pv) { const pp = pre.slice(0, -1) + com(pv[0], pv[1], 8); out.push(pp + (bright ? '라' : '러'), pp + (bright ? '랐' : '렀')); }
     else if (v === 18) { const nv = bright ? 0 : 4; out.push(pre + com(c0, nv, 0), pre + com(c0, nv, 20)); }
@@ -369,7 +381,7 @@ const koForms = stem => { // 활용형 후보: 덥→더워, 바쁘→바빠, �
   }
   return out;
 };
-const NUMF = { '둘': '두', '셋': '세', '넷': '네' };
+const NUMF = { '둘': '두', '셋': '세', '넷': '네', '스물': '스무' };
 const parts = w => w.replace(/[〜~]/g, '').replace(/\([^)]*\)|\uFF08[^\uFF09]*\uFF09/g, '').split(/\s*[・·、,]\s*/).map(x => x.trim()).filter(Boolean);
 const cands = (word, ja, alt) => {
   const out = [];
@@ -398,9 +410,10 @@ for (const c of CATS) {
   if (!raw) continue;
   for (const line of raw.split('\n')) {
     const f = line.split('|').map(x => x.trim());
+    const lv = /^[1-3]$/.test(f[0]) ? +f.shift() : 1;
     if (f.length < 3 || !f[0] || !f[2]) continue;
     const [ko, kp, ja, exKo = '', exJa = '', nKo = '', nJa = '', ov = ''] = f;
-    const w = { id: ko + '/' + plain(ja), cat: c.key, ko, kp, ja, jp: plain(ja), jr: ov || yomi(ja), exKo, exJa, nKo, nJa };
+    const w = { id: ko + '/' + plain(ja), cat: c.key, lv, ko, kp, ja, jp: plain(ja), jr: ov || yomi(ja), exKo, exJa, nKo, nJa };
     w.hg = k2h(w.jr); w.kanji = HAN.test(w.jp);
     if (BY[w.id]) continue;
     BY[w.id] = w; WORDS.push(w);
@@ -413,6 +426,7 @@ const T = {
   kr: { tabs: ['오늘 학습', '퀴즈', '단어 목록', '설정'], lang: { ko: '한국어', ja: '일본어' },
     today: '오늘의 학습', date: (m, d, w) => `${m}/${d} (${w})`, wd: ['일', '월', '화', '수', '목', '금', '토'],
     newW: '새 단어', rev: '복습', streak: '연속 학습', dayU: '일', unfold: '자세히', fold: '접기', week7: '최근 7일',
+    lvN: ['기초', '초급', '중급'], lvAll: '전체', grpLv: '레벨', grpCat: '분류', lvGuide: '레벨은 대략적인 기준이에요. Lv.1 ≈ JLPT N5·TOPIK 1급, Lv.2 ≈ N4·2급, Lv.3 ≈ N3·3급',
     line: (d, t) => `오늘 할 일 ${t}개 중 ${d}개 완료`, left: n => `남은 카드 ${n}장`, goalDone: '오늘 목표 달성! 수고했어요.', noTask: '오늘은 할 카드가 없어요.',
     scope: '새 단어 범위', all: '전체 분류',
     read: '읽기', pron: '발음', mean: '뜻', ex: '예문', lapse: n => `틀린 횟수 ${n}`,
@@ -423,7 +437,7 @@ const T = {
     more: '새 단어 5개 더 하기', scopeEmpty: '이 범위의 새 단어를 모두 봤어요. 위의 "새 단어 범위"를 바꿔 보세요.', allSeen: '모든 단어를 한 번씩 봤어요. 이제 복습만 남았어요.',
     goQuiz: '퀴즈 풀기', goList: '단어 목록 보기',
     phrase: '오늘의 한마디', phraseSub: '같은 날엔 둘에게 같은 문장이 나와요. 서로에게 말해 보세요.', say: '듣기',
-    q: { pool: '문제 범위', pools: ['학습한 단어', '틀린 단어', '분류별'], type: '문제 유형', types: ['섞어서', '뜻 고르기', '단어 고르기', '읽기 고르기'],
+    q: { pool: '문제 범위', pools: ['학습한 단어', '틀린 단어', '분류·레벨'], type: '문제 유형', types: ['섞어서', '뜻 고르기', '단어 고르기', '읽기 고르기'],
       start: '퀴즈 시작', avail: n => `이 범위에서 ${Math.min(10, n)}문제를 내요. (단어 ${n}개)`, few: n => `문제를 내려면 단어가 4개 이상 필요해요. (지금 ${n}개)`,
       note: '틀린 단어는 오늘 학습에 다시 나오고, "틀린 단어" 범위에 모여요.', qMean: '알맞은 뜻을 고르세요', qWord: '일본어로 알맞은 것을 고르세요', qRead: '알맞은 읽는 법을 고르세요',
       right: '정답이에요!', wrong: '아쉬워요. 정답을 확인하세요.', next: '다음 문제', end: '결과 보기', score: (a, b) => `${b}문제 중 ${a}개 정답`,
@@ -443,6 +457,7 @@ const T = {
   jp: { tabs: ['今日の学習', 'クイズ', '単語リスト', '設定'], lang: { ko: '韓国語', ja: '日本語' },
     today: '今日の学習', date: (m, d, w) => `${m}/${d}(${w})`, wd: ['日', '月', '火', '水', '木', '金', '土'],
     newW: '新しい単語', rev: '復習', streak: '連続学習', dayU: '日', unfold: '詳しく', fold: '閉じる', week7: '最近7日間',
+    lvN: ['基礎', '初級', '中級'], lvAll: 'すべて', grpLv: 'レベル', grpCat: '分類', lvGuide: 'レベルはだいたいの目安です。Lv.1 ≈ JLPT N5・TOPIK 1級、Lv.2 ≈ N4・2級、Lv.3 ≈ N3・3級',
     line: (d, t) => `今日のやること ${t}個中 ${d}個 完了`, left: n => `残りのカード ${n}枚`, goalDone: '今日の目標達成!お疲れさまでした。', noTask: '今日のカードはありません。',
     scope: '新しい単語の範囲', all: 'すべて',
     read: '読み', pron: '発音', mean: '意味', ex: '例文', lapse: n => `間違えた回数 ${n}`,
@@ -453,7 +468,7 @@ const T = {
     more: '新しい単語をあと5個', scopeEmpty: 'この範囲の新しい単語はすべて見ました。上の「新しい単語の範囲」を変えてみてください。', allSeen: 'すべての単語を一度ずつ見ました。あとは復習だけです。',
     goQuiz: 'クイズをする', goList: '単語リストを見る',
     phrase: '今日のひとこと', phraseSub: '同じ日はふたりに同じ文が出ます。お互いに言ってみましょう。', say: '聞く',
-    q: { pool: '出題範囲', pools: ['学習済み', '間違えた', 'カテゴリ'], type: '問題の種類', types: ['ミックス', '意味を選ぶ', '単語を選ぶ', '読みを選ぶ'],
+    q: { pool: '出題範囲', pools: ['学習済み', '間違えた', '分類・レベル'], type: '問題の種類', types: ['ミックス', '意味を選ぶ', '単語を選ぶ', '読みを選ぶ'],
       start: 'クイズを始める', avail: n => `この範囲から${Math.min(10, n)}問出します。(単語${n}個)`, few: n => `問題を出すには単語が4個以上必要です。(今 ${n}個)`,
       note: '間違えた単語は今日の学習にもう一度出て、「間違えた単語」に集まります。', qMean: '正しい意味を選んでください', qWord: '韓国語で正しいものを選んでください', qRead: '正しい読み方を選んでください',
       right: '正解です!', wrong: '残念。答えを確認しましょう。', next: '次の問題', end: '結果を見る', score: (a, b) => `${b}問中 ${a}問正解`,
@@ -492,13 +507,13 @@ const LS = 'futari-tango-v1';
 const INT = [0, 1, 3, 7, 14, 30, 60];
 const newP = () => ({ c: {}, nd: 0, nn: 0, ex: 0, log: {} });
 const DEF = () => ({ v: 1, mode: null, perDay: 10, furi: true, pron: true, dir: 'fwd', scope: 'all', fs: 0, wk: false, qp: 'learned', qt: 'mix', qcat: (CATS[0] || {}).key || '', at: 0, p: { kr: newP(), jp: newP() } });
-const fix = s => { s = Object.assign(DEF(), s || {}); s.p = Object.assign(DEF().p, s.p || {}); for (const k of ['kr', 'jp']) s.p[k] = Object.assign(newP(), s.p[k] || {}); if (s.scope !== 'all' && !CATS.some(c => c.key === s.scope)) s.scope = 'all'; return s; };
+const fix = s => { s = Object.assign(DEF(), s || {}); s.p = Object.assign(DEF().p, s.p || {}); for (const k of ['kr', 'jp']) s.p[k] = Object.assign(newP(), s.p[k] || {}); if (s.scope !== 'all' && !/^lv[1-3]$/.test(s.scope) && !CATS.some(c => c.key === s.scope)) s.scope = 'all'; if (!/^lv[1-3]$/.test(s.qcat) && !CATS.some(c => c.key === s.qcat)) s.qcat = (CATS[0] || {}).key || ''; return s; };
 let S = DEF();
 try { const j = JSON.parse(localStorage.getItem(LS) || 'null'); if (j && j.v === 1) S = fix(j); } catch (e) {}
 const P = () => S.p[S.mode];
 const L = () => T[S.mode || 'kr'];
 let view = 'study', Q = null, Qkey = '', revealed = false, stale = false, sess = { failed: new Set() }, quiz = null, resetAsk = false;
-const LV = { q: '', cat: 'all', st: 'all', hide: 0, open: new Set(), shown: new Set() };
+const LV = { q: '', cat: 'all', lv: 'all', st: 'all', hide: 0, open: new Set(), shown: new Set() };
 
 let store = 'local', ref = null, writing = false, dirty = false, timer = null;
 const save = () => {
@@ -561,6 +576,12 @@ const rdT = w => S.mode === 'kr' ? w.jr : w.kp;
 const canRead = w => S.mode === 'kr' ? w.kanji : !!w.kp;
 const lt = l => `<span class="lt ${l}">${esc(L().lang[l])}</span>`;
 const catName = k => S.mode === 'jp' ? catOf(k).ja : catOf(k).ko;
+const lvName = n => `Lv.${n} ${L().lvN[n - 1]}`;
+const inSel = (w, k) => k === 'all' || (/^lv[1-3]$/.test(k) ? w.lv === +k[2] : w.cat === k);
+const selOpts = (cur, all) => {
+  const t = L(), o = (k, n) => `<option value="${esc(k)}"${cur === k ? ' selected' : ''}>${esc(n)}</option>`;
+  return (all ? o('all', t.all) : '') + `<optgroup label="${esc(t.grpLv)}">${[1, 2, 3].map(n => o('lv' + n, lvName(n))).join('')}</optgroup><optgroup label="${esc(t.grpCat)}">${CATS.map(c => o(c.key, S.mode === 'jp' ? c.ja : c.ko)).join('')}</optgroup>`;
+};
 const head = (w, furi) => S.mode === 'kr' ? `<div class="head jaf" lang="ja">${ruby(w.ja, furi)}</div>` : `<div class="head kof" lang="ko">${esc(w.ko)}</div>`;
 const readRow = w => {
   const t = L(); let h = '';
@@ -588,7 +609,7 @@ const fullWord = w => `${lt(tgtL())}${head(w, S.mode === 'kr' && S.furi)}${readR
 function build(keep) {
   const t = today(), p = P(); roll(p);
   const rev = WORDS.filter(w => p.c[w.id] && p.c[w.id].d <= t).sort((a, b) => p.c[a.id].d - p.c[b.id].d);
-  const nw = WORDS.filter(w => !p.c[w.id] && (S.scope === 'all' || w.cat === S.scope)).slice(0, Math.max(0, S.perDay + p.ex - p.nn));
+  const nw = WORDS.filter(w => !p.c[w.id] && inSel(w, S.scope)).sort((a, b) => a.lv - b.lv).slice(0, Math.max(0, S.perDay + p.ex - p.nn));
   Q = []; let i = 0, j = 0;
   while (i < rev.length || j < nw.length) {
     if (i < rev.length) Q.push({ id: rev[i++].id });
@@ -632,7 +653,7 @@ function panelHTML(s) {
   const ok = total > 0 && done >= total, C = 2 * Math.PI * 34, now = new Date();
   const g = P().log, days = [6, 5, 4, 3, 2, 1, 0].map(k => td - k), vals = days.map(d => g[d] ? g[d][0] + g[d][1] : 0), mx = Math.max(5, ...vals);
   const week = days.map((d, i) => `<div class="wk${d === td ? ' on' : ''}"><span class="wv">${vals[i] || ''}</span><div class="wb"><i style="height:${Math.round(vals[i] / mx * 100)}%"></i></div><span class="wkl">${t.wd[new Date(d * 86400000).getUTCDay()]}</span></div>`).join('');
-  const opts = [['all', t.all], ...CATS.map(c => [c.key, S.mode === 'jp' ? c.ja : c.ko])].map(([k, n]) => `<option value="${esc(k)}"${S.scope === k ? ' selected' : ''}>${esc(n)}</option>`).join('');
+  const opts = selOpts(S.scope, true);
   const line = total ? (ok ? `<p class="tl ok">${esc(t.goalDone)}</p>` : `<p class="tl">${esc(t.line(done, total))}${Q.length ? ` <span>· ${esc(t.left(Q.length))}</span>` : ''}</p>`) : `<p class="tl">${esc(t.noTask)}</p>`;
   const stk = `${t.streak} ${s.st}${t.dayU}`;
   return `<section class="panel tp"><div class="tm"><div class="ring${ok ? ' ok' : ''}" role="img" aria-label="${pct}%"><svg viewBox="0 0 84 84"><circle class="rb" cx="42" cy="42" r="34"/><circle class="rf" cx="42" cy="42" r="34" stroke-dasharray="${(C * pct / 100).toFixed(1)} 999" transform="rotate(-90 42 42)"${pct ? '' : ' hidden'}/></svg><span>${pct}<small>%</small></span></div>
@@ -643,7 +664,7 @@ function panelHTML(s) {
 }
 function cardHTML() {
   const t = L(), q = Q[0], w = BY[q.id], c = P().c[q.id], isNew = q.intro || (c && c.f === today());
-  const top = `<div class="ct"><span class="pill ${isNew ? 'new' : 'rev'}">${esc(isNew ? t.newW : t.rev)}</span><span class="pill cat">${esc(catName(w.cat))}</span>${c && c.l ? `<span class="pill warn">${esc(t.lapse(c.l))}</span>` : ''}<span class="ct-r">${esc(t.left(Q.length))}</span></div>`;
+  const top = `<div class="ct"><span class="pill ${isNew ? 'new' : 'rev'}">${esc(isNew ? t.newW : t.rev)}</span><span class="pill cat">${esc(catName(w.cat))}</span><span class="pill lvb l${w.lv}">${esc(lvName(w.lv))}</span>${c && c.l ? `<span class="pill warn">${esc(t.lapse(c.l))}</span>` : ''}<span class="ct-r">${esc(t.left(Q.length))}</span></div>`;
   if (q.intro) return `<article class="card fade" id="card">${top}${fullWord(w)}</article><div class="act"><button type="button" class="btn pri wide" data-act="intro-next">${esc(t.next)}<span class="k">Space</span></button></div>`;
   if (!revealed) {
     if (q.rv === undefined) q.rv = S.dir === 'rev' || (S.dir === 'mix' && Math.random() < .5);
@@ -657,7 +678,7 @@ function cardHTML() {
   return `<article class="card fade" id="card">${top}${fullWord(w)}</article><div class="act g3">${gb(0, 'x', t.grades[0], t.gsub[0])}${gb(1, 'tri', t.grades[1], t.gsub[1])}${gb(2, 'circ', t.grades[2], t.gsub[2](INT[nx]))}</div>`;
 }
 function doneHTML(s) {
-  const t = L(), p = P(), inScope = WORDS.some(w => !p.c[w.id] && (S.scope === 'all' || w.cat === S.scope)), any = WORDS.some(w => !p.c[w.id]);
+  const t = L(), p = P(), inScope = WORDS.some(w => !p.c[w.id] && inSel(w, S.scope)), any = WORDS.some(w => !p.c[w.id]);
   const extra = inScope ? `<div class="act"><button type="button" class="btn pri wide" data-act="more">${ic('plus')}${esc(t.more)}</button></div>` : `<p>${esc(any ? t.scopeEmpty : t.allSeen)}</p>`;
   return `<div class="card empty fade"><div class="big">${ic('check')}</div><h2>${esc(s.nd + s.rd ? t.doneT : t.noneT)}</h2><p>${esc(t.doneS(s.nd, s.rd))}</p>${extra}
     <div class="act two"><button type="button" class="btn sm" data-act="tab" data-v="quiz">${ic('quiz')}${esc(t.goQuiz)}</button><button type="button" class="btn sm" data-act="tab" data-v="list">${ic('list')}${esc(t.goList)}</button></div></div>`;
@@ -680,7 +701,7 @@ function studyHTML() {
 function quizPool() {
   const p = P();
   if (S.qp === 'wrong') return WORDS.filter(w => p.c[w.id] && p.c[w.id].l > 0);
-  if (S.qp === 'cat') return WORDS.filter(w => w.cat === S.qcat);
+  if (S.qp === 'cat') return WORDS.filter(w => inSel(w, S.qcat));
   return WORDS.filter(w => p.c[w.id]);
 }
 function makeItem(w) {
@@ -711,7 +732,7 @@ function quizHTML() {
   const t = L(), tq = t.q;
   if (!quiz) {
     const n = quizPool().length, seg = (act, cur, list, cls) => `<div class="seg ${cls}">${list.map(([v, lab]) => `<button type="button" data-act="${act}" data-v="${v}" aria-pressed="${cur === v}">${esc(lab)}</button>`).join('')}</div>`;
-    const catSel = S.qp === 'cat' ? `<p class="muted"><select class="sel" data-act="qcat">${CATS.map(c => `<option value="${esc(c.key)}"${S.qcat === c.key ? ' selected' : ''}>${esc(S.mode === 'jp' ? c.ja : c.ko)}</option>`).join('')}</select></p>` : '';
+    const catSel = S.qp === 'cat' ? `<p class="muted"><select class="sel" data-act="qcat">${selOpts(S.qcat, false)}</select></p>` : '';
     return `<section class="panel fade"><div class="panel-h"><h2>${esc(t.tabs[1])}</h2></div>
       <h3 class="fl">${esc(tq.pool)}</h3>${seg('qp', S.qp, [['learned', tq.pools[0]], ['wrong', tq.pools[1]], ['cat', tq.pools[2]]], 's3')}${catSel}
       <h3 class="fl">${esc(tq.type)}</h3>${seg('qt', S.qt, [['mix', tq.types[0]], ['mean', tq.types[1]], ['word', tq.types[2]], ['read', tq.types[3]]], 's4')}
@@ -752,21 +773,24 @@ const stOf = c => !c ? 'new' : c.s >= 3 ? 'known' : 'learning';
 function listHTML() {
   const t = L(), tl = t.l, p = P();
   const inCat = WORDS.filter(w => LV.cat === 'all' || w.cat === LV.cat);
-  const cnt = { all: inCat.length, new: 0, learning: 0, known: 0, wrong: 0 };
-  for (const w of inCat) { const c = p.c[w.id]; cnt[stOf(c)]++; if (c && c.l) cnt.wrong++; }
+  const lc = { all: inCat.length, 1: 0, 2: 0, 3: 0 }; for (const w of inCat) lc[w.lv]++;
+  const inLv = inCat.filter(w => LV.lv === 'all' || w.lv === +LV.lv);
+  const cnt = { all: inLv.length, new: 0, learning: 0, known: 0, wrong: 0 };
+  for (const w of inLv) { const c = p.c[w.id]; cnt[stOf(c)]++; if (c && c.l) cnt.wrong++; }
+  const lvs = ['all', '1', '2', '3'].map(k => `<button type="button"${k === 'all' ? '' : ` class="l${k}"`} data-act="lvf" data-v="${k}" aria-pressed="${LV.lv === k}"><b>${k === 'all' ? esc(t.lvAll) : 'Lv.' + k}</b><small>${k === 'all' ? '' : `<span class="lvn">${esc(t.lvN[+k - 1])} · </span>`}${lc[k]}</small></button>`).join('');
   const cats = [['all', t.all], ...CATS.map(c => [c.key, S.mode === 'jp' ? c.ja : c.ko])].map(([k, n]) => `<button type="button" class="chip" data-act="cat" data-v="${esc(k)}" aria-pressed="${LV.cat === k}">${esc(n)}</button>`).join('');
   const sts = ['all', 'new', 'learning', 'known', 'wrong'].map((k, i) => `<button type="button" class="chip" data-act="st" data-v="${k}" aria-pressed="${LV.st === k}">${esc(tl.st[i])}<span class="n">${cnt[k]}</span></button>`).join('');
   const hide = tl.hide.map((h, i) => `<button type="button" data-act="hide" data-v="${i}" aria-pressed="${LV.hide === i}">${esc(h)}</button>`).join('');
   return `<div class="tools"><label class="search">${ic('search')}<input id="q" type="search" placeholder="${esc(tl.search)}" value="${esc(LV.q)}" autocomplete="off" aria-label="${esc(tl.search)}"></label>
-      <div class="chips">${cats}</div><div class="chips">${sts}</div><div class="seg s3">${hide}</div></div>
-    <div class="lh"><span></span><span>${lt('ko')}</span><span>${lt('ja')}</span><span></span></div>
+      <div class="seg lv4">${lvs}</div><div class="chips">${cats}</div><div class="chips">${sts}</div><div class="seg s3">${hide}</div></div>
+    <div class="lh"><span></span><span>${lt('ko')}</span><span>${lt('ja')}</span><span class="lvh">Lv</span><span></span></div>
     <div class="rows" id="rows"></div>
     <div class="legend"><span><i class="sd"></i>${esc(tl.stName[0])}</span><span><i class="sd s1"></i>${esc(tl.stName[1])}</span><span><i class="sd s2"></i>${esc(tl.stName[2])}</span><span><i class="sd x"></i>${esc(tl.wrongMark)}</span></div>
-    <p class="muted"><span id="count"></span> · ${esc(tl.tapHint)}</p>`;
+    <p class="muted"><span id="count"></span> · ${esc(tl.tapHint)}</p><p class="muted">${esc(t.lvGuide)}</p>`;
 }
 function detailHTML(w, c) {
   const t = L(), tl = t.l, td = today();
-  const info = c ? tl.due(c.d - td) + (c.l ? ' · ' + t.lapse(c.l) : '') : tl.unseen;
+  const info = lvName(w.lv) + ' · ' + (c ? tl.due(c.d - td) + (c.l ? ' · ' + t.lapse(c.l) : '') : tl.unseen);
   const rd = S.mode === 'kr'
     ? `${w.kanji ? `<span class="kv"><em>${esc(t.read)}</em><b class="jaf" lang="ja">${esc(w.jr)}</b></span>` : ''}${S.pron ? `<span class="kv"><em>${esc(t.pron)}</em><b>${esc(w.hg)}</b></span>` : ''}`
     : `${S.pron && w.kp ? `<span class="kv"><em>${esc(t.read)}</em><b class="jaf" lang="ja">${esc(w.kp)}</b></span>` : ''}`;
@@ -776,6 +800,7 @@ function rowsRender() {
   const t = L(), tl = t.l, p = P(), q = LV.q.trim().toLowerCase();
   const list = WORDS.filter(w => {
     if (LV.cat !== 'all' && w.cat !== LV.cat) return false;
+    if (LV.lv !== 'all' && w.lv !== +LV.lv) return false;
     const c = p.c[w.id];
     if (LV.st === 'wrong' ? !(c && c.l) : LV.st !== 'all' && stOf(c) !== LV.st) return false;
     return !q || [w.ko, w.jp, w.jr, w.kp, w.hg].some(s => (s || '').toLowerCase().includes(q));
@@ -786,7 +811,7 @@ function rowsRender() {
     const c = p.c[w.id], s = !c ? 0 : c.s >= 3 ? 2 : 1, hk = LV.hide === 1 && !LV.shown.has(w.id), hj = LV.hide === 2 && !LV.shown.has(w.id), open = LV.open.has(w.id) && !hk && !hj;
     const ko = hk ? cover : `<span class="w kof" lang="ko">${esc(w.ko)}</span>${S.mode === 'jp' && S.pron ? `<small class="jaf" lang="ja">${esc(w.kp)}</small>` : ''}`;
     const ja = hj ? cover : `<span class="w jaf" lang="ja">${ruby(w.ja, S.mode === 'kr' && S.furi)}</span>${S.mode === 'kr' && S.pron ? `<small>${esc(w.hg)}</small>` : ''}`;
-    return `<div class="row${open ? ' open' : ''}"><button type="button" class="rbtn" data-act="row" data-id="${esc(w.id)}" aria-expanded="${open}"><i class="sd s${s}${c && c.l ? ' x' : ''}" title="${esc(tl.stName[s])}"></i><span>${ko}</span><span>${ja}</span>${ic('chev', 'chev')}</button>${open ? detailHTML(w, c) : ''}</div>`;
+    return `<div class="row${open ? ' open' : ''}"><button type="button" class="rbtn" data-act="row" data-id="${esc(w.id)}" aria-expanded="${open}"><i class="sd s${s}${c && c.l ? ' x' : ''}" title="${esc(tl.stName[s])}"></i><span>${ko}</span><span>${ja}</span><span class="lvb l${w.lv}" title="${esc(lvName(w.lv))}">Lv${w.lv}</span>${ic('chev', 'chev')}</button>${open ? detailHTML(w, c) : ''}</div>`;
   }).join('') || `<p class="none">${esc(tl.none)}</p>`;
   $('#count').textContent = tl.count(list.length);
 }
@@ -864,6 +889,7 @@ document.addEventListener('click', e => {
   else if (a === 'quiz-pick') quizPick(+el.dataset.i);
   else if (a === 'quiz-next') { quiz.i++; jump = true; }
   else if (a === 'cat') LV.cat = v;
+  else if (a === 'lvf') LV.lv = v;
   else if (a === 'st') LV.st = v;
   else if (a === 'hide') { LV.hide = +v; LV.shown.clear(); }
   else if (a === 'pd') { S.perDay = +v; save(); stale = true; }
