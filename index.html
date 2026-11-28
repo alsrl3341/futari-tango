@@ -46,19 +46,19 @@ ruby rt{font-size:.5em;font-weight:500;color:var(--sub)}
 
 /* header */
 .top{background:var(--surface);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding-top:.7rem;padding-bottom:.7rem}
-.brand{display:flex;align-items:center;gap:.6rem}
-.logo{width:2.5rem;height:2.5rem;border-radius:.75rem;background:var(--pri);color:#fff;display:flex;align-items:center;justify-content:center;font:800 1rem/1 var(--fko);letter-spacing:-.06em;flex:none}
-.logo i{font:700 .9rem/1 var(--fja);font-style:normal;opacity:.8}
-.brand h1{margin:0;font-size:1.25rem;line-height:1.2;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
-.brand small{display:block;font-size:.75rem;color:var(--sub);font-weight:500;white-space:nowrap}
-.dir{display:flex;gap:.2rem;background:var(--surface2);border:1px solid var(--line);border-radius:.8rem;padding:.2rem;flex:none}
-.dir button{border:0;background:transparent;border-radius:.6rem;padding:.3rem .55rem;min-height:2.6rem;font-weight:800;font-size:.85rem;color:var(--sub);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2;white-space:nowrap}
-.dir button small{font-size:.66rem;font-weight:600}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:11px;padding-bottom:11px}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:40px;height:40px;border-radius:12px;background:var(--pri);color:#fff;display:flex;align-items:center;justify-content:center;font:800 16px/1 var(--fko);letter-spacing:-.06em;flex:none}
+.logo i{font:700 14.4px/1 var(--fja);font-style:normal;opacity:.8}
+.brand h1{margin:0;font-size:20px;line-height:1.2;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
+.brand small{display:block;font-size:12px;color:var(--sub);font-weight:500;white-space:nowrap}
+.dir{display:flex;gap:3px;background:var(--surface2);border:1px solid var(--line);border-radius:13px;padding:3px;flex:none}
+.dir button{border:0;background:transparent;border-radius:10px;padding:5px 9px;min-height:42px;font-weight:800;font-size:13.6px;color:var(--sub);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2;white-space:nowrap}
+.dir button small{font-size:10.5px;font-weight:600}
 .dir button:hover{color:var(--ink)}
 .dir button[aria-pressed=true]{background:var(--surface);color:var(--pri);box-shadow:0 1px 3px rgba(16,24,40,.14),inset 0 0 0 1.5px var(--pri)}
 @media(max-width:400px){.dir button small{display:none}}
-@media(max-width:350px){.brand small{display:none}}
+@media(max-width:350px){.brand small{display:none}.brand h1{font-size:18px}}
 
 /* tabs */
 .tabs{position:sticky;top:0;z-index:10;background:var(--bg);background:color-mix(in srgb,var(--bg) 90%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:.6rem 0 .3rem}
@@ -79,33 +79,51 @@ ruby rt{font-size:.5em;font-weight:500;color:var(--sub)}
 @keyframes rise{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.fade{animation:none}}
 
-/* today panel */
-.tm{display:flex;align-items:center;gap:.9rem}
-.ring{position:relative;width:4.6rem;height:4.6rem;flex:none}
+/* today panel (compact) */
+.panel.tp{padding:.7rem .9rem .75rem}
+.tm{display:flex;align-items:center;gap:.7rem}
+.ring{position:relative;width:3.2rem;height:3.2rem;flex:none}
 .ring svg{width:100%;height:100%;display:block}
 .ring .rb{fill:none;stroke:var(--line);stroke-width:9}
 .ring .rf{fill:none;stroke:var(--pri);stroke-width:9;stroke-linecap:round}
 .ring.ok .rf{stroke:var(--good)}
-.ring span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.15rem;font-weight:800}
-.ring span small{font-size:.65rem}
-.stats{flex:1;display:grid;gap:.3rem}
-.stat{display:flex;align-items:center;justify-content:space-between;gap:.5rem;background:var(--surface2);border:1px solid var(--line);border-radius:.65rem;padding:.2rem .65rem;line-height:1.35}
-.stat em{display:flex;align-items:center;gap:.25rem;font-style:normal;font-size:.8rem;color:var(--ink2);font-weight:700}
-.stat em .ic{width:.95rem;height:.95rem;color:var(--warn)}
-.stat b{font-size:1.1rem;font-weight:800;white-space:nowrap}
-.stat b small{font-size:.78rem;color:var(--sub);font-weight:700}
-.tl{margin:.75rem 0 0;font-size:.92rem;font-weight:700;color:var(--ink2)}
+.ring span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:800;letter-spacing:-.02em}
+.ring span small{font-size:.6rem}
+.tmr{flex:1;container-type:inline-size}
+.tph{display:flex;flex-wrap:wrap;align-items:center;gap:.2rem .45rem;margin-bottom:.15rem}
+.tph h2{margin:0;font-size:1rem;font-weight:800;line-height:1.3;white-space:nowrap;flex:none}
+.tph .dt2{flex:0 1 auto;font-size:.78rem;color:var(--sub);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@container (max-width:14.2rem){.tph .dt2{display:none}}
+@container (max-width:10.3rem){.more-t span{display:none}.more-t{padding:.1rem .45rem}}
+.more-t{margin-left:auto;display:inline-flex;align-items:center;gap:.1rem;min-height:2.1rem;padding:.1rem .4rem .1rem .7rem;border-radius:999px;border:1.5px solid var(--line2);background:var(--surface);color:var(--ink2);font-weight:800;font-size:.78rem;box-shadow:0 2px 0 var(--line2);white-space:nowrap;flex:none}
+.more-t:hover{border-color:var(--pri);color:var(--pri)}
+.more-t:active{transform:translateY(2px);box-shadow:none}
+.more-t .ic{width:1rem;height:1rem;transform:rotate(90deg);transition:transform .15s}
+.more-t[aria-expanded=true] .ic{transform:rotate(-90deg)}
+.sts{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .75rem;margin:0;line-height:1.35}
+.sts>span{display:inline-flex;align-items:baseline;gap:.25rem;white-space:nowrap}
+.sts em{font-style:normal;font-size:.76rem;font-weight:700;color:var(--ink2)}
+.sts b{font-size:1.15rem;font-weight:800}
+.sts .n1{color:var(--pri)}.sts .n2{color:var(--good2)}
+.sts small{font-size:.8rem;font-weight:700;color:var(--sub);margin-left:-.15rem}
+.sts .ic{width:1rem;height:1rem;color:var(--warn);align-self:center}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.pmore{margin-top:.7rem;padding-top:.7rem;border-top:1px solid var(--line)}
+.tl{margin:0;font-size:.9rem;font-weight:700;color:var(--ink2)}
 .tl.ok{color:var(--good2)}
 .tl span{color:var(--sub);font-weight:600;white-space:nowrap}
-.week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:.35rem;margin-top:.75rem;align-items:end}
+.wcap{display:flex;justify-content:space-between;align-items:center;gap:.5rem;margin:.75rem 0 0;font-size:.8rem;font-weight:700;color:var(--sub)}
+.wcap span{display:inline-flex;align-items:center;gap:.2rem}
+.wcap .ic{width:.95rem;height:.95rem;color:var(--warn)}
+.week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:.35rem;margin-top:.4rem;align-items:end}
 .wk{display:flex;flex-direction:column;align-items:center;gap:.15rem}
 .wv{font-size:.7rem;color:var(--sub);line-height:1;min-height:.7rem;font-weight:700}
 .wb{width:100%;max-width:2.1rem;height:2.4rem;background:var(--surface2);border:1px solid var(--line);border-radius:.45rem;display:flex;align-items:flex-end;overflow:hidden}
 .wb i{display:block;width:100%;background:rgba(47,111,237,.38);min-height:0}
 .wk.on .wb i{background:var(--pri)}
-.wl{font-size:.72rem;color:var(--sub);font-weight:700}
-.wk.on .wl{color:var(--pri)}
-.scope{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-top:.85rem;padding-top:.8rem;border-top:1px solid var(--line);font-size:.88rem;font-weight:700}
+.wkl{font-size:.72rem;color:var(--sub);font-weight:700}
+.wk.on .wkl{color:var(--pri)}
+.scope{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-top:.8rem;padding-top:.7rem;border-top:1px solid var(--line);font-size:.88rem;font-weight:700}
 .sel{appearance:none;-webkit-appearance:none;min-height:2.6rem;border:1.5px solid var(--line2);border-radius:.7rem;background:var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2366707D' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right .65rem center/1rem;padding:.3rem 2.1rem .3rem .8rem;font-weight:700;font-size:.92rem;box-shadow:0 2px 0 var(--line2);cursor:pointer;max-width:100%}
 
 /* word card */
@@ -393,8 +411,8 @@ const catOf = k => CATS.find(c => c.key === k) || { ko: k, ja: k };
 /* ---------- text ---------- */
 const T = {
   kr: { tabs: ['오늘 학습', '퀴즈', '단어 목록', '설정'], lang: { ko: '한국어', ja: '일본어' },
-    today: '오늘의 학습', date: (m, d, w) => `${m}월 ${d}일 (${w})`, wd: ['일', '월', '화', '수', '목', '금', '토'],
-    newW: '새 단어', rev: '복습', streak: '연속 학습', dayU: '일',
+    today: '오늘의 학습', date: (m, d, w) => `${m}/${d} (${w})`, wd: ['일', '월', '화', '수', '목', '금', '토'],
+    newW: '새 단어', rev: '복습', streak: '연속 학습', dayU: '일', unfold: '자세히', fold: '접기', week7: '최근 7일',
     line: (d, t) => `오늘 할 일 ${t}개 중 ${d}개 완료`, left: n => `남은 카드 ${n}장`, goalDone: '오늘 목표 달성! 수고했어요.', noTask: '오늘은 할 카드가 없어요.',
     scope: '새 단어 범위', all: '전체 분류',
     read: '읽기', pron: '발음', mean: '뜻', ex: '예문', lapse: n => `틀린 횟수 ${n}`,
@@ -423,8 +441,8 @@ const T = {
         '단어 목록에서 한 사람은 "한국어 가리기", 다른 사람은 "일본어 가리기"를 켜고 서로 문제를 내 보세요.', '휴대폰 브라우저의 공유 메뉴에서 "홈 화면에 추가"를 누르면 앱처럼 쓸 수 있어요.'] },
     foot: (n, v) => `단어 ${n}개 · 데이터 ${v} · 뜻과 발음 표기는 학습용으로 정리한 것이라 교재와 조금 다를 수 있어요.` },
   jp: { tabs: ['今日の学習', 'クイズ', '単語リスト', '設定'], lang: { ko: '韓国語', ja: '日本語' },
-    today: '今日の学習', date: (m, d, w) => `${m}月${d}日(${w})`, wd: ['日', '月', '火', '水', '木', '金', '土'],
-    newW: '新しい単語', rev: '復習', streak: '連続学習', dayU: '日',
+    today: '今日の学習', date: (m, d, w) => `${m}/${d}(${w})`, wd: ['日', '月', '火', '水', '木', '金', '土'],
+    newW: '新しい単語', rev: '復習', streak: '連続学習', dayU: '日', unfold: '詳しく', fold: '閉じる', week7: '最近7日間',
     line: (d, t) => `今日のやること ${t}個中 ${d}個 完了`, left: n => `残りのカード ${n}枚`, goalDone: '今日の目標達成!お疲れさまでした。', noTask: '今日のカードはありません。',
     scope: '新しい単語の範囲', all: 'すべて',
     read: '読み', pron: '発音', mean: '意味', ex: '例文', lapse: n => `間違えた回数 ${n}`,
@@ -473,7 +491,7 @@ const ic = (k, cls = '') => `<svg class="ic ${cls}" viewBox="0 0 24 24" aria-hid
 const LS = 'futari-tango-v1';
 const INT = [0, 1, 3, 7, 14, 30, 60];
 const newP = () => ({ c: {}, nd: 0, nn: 0, ex: 0, log: {} });
-const DEF = () => ({ v: 1, mode: null, perDay: 10, furi: true, pron: true, dir: 'fwd', scope: 'all', fs: 0, qp: 'learned', qt: 'mix', qcat: (CATS[0] || {}).key || '', at: 0, p: { kr: newP(), jp: newP() } });
+const DEF = () => ({ v: 1, mode: null, perDay: 10, furi: true, pron: true, dir: 'fwd', scope: 'all', fs: 0, wk: false, qp: 'learned', qt: 'mix', qcat: (CATS[0] || {}).key || '', at: 0, p: { kr: newP(), jp: newP() } });
 const fix = s => { s = Object.assign(DEF(), s || {}); s.p = Object.assign(DEF().p, s.p || {}); for (const k of ['kr', 'jp']) s.p[k] = Object.assign(newP(), s.p[k] || {}); if (s.scope !== 'all' && !CATS.some(c => c.key === s.scope)) s.scope = 'all'; return s; };
 let S = DEF();
 try { const j = JSON.parse(localStorage.getItem(LS) || 'null'); if (j && j.v === 1) S = fix(j); } catch (e) {}
@@ -613,14 +631,15 @@ function panelHTML(s) {
   const t = L(), td = today(), done = s.nd + s.rd, total = done + s.nl + s.rl, pct = total ? Math.round(done / total * 100) : (done ? 100 : 0);
   const ok = total > 0 && done >= total, C = 2 * Math.PI * 34, now = new Date();
   const g = P().log, days = [6, 5, 4, 3, 2, 1, 0].map(k => td - k), vals = days.map(d => g[d] ? g[d][0] + g[d][1] : 0), mx = Math.max(5, ...vals);
-  const week = days.map((d, i) => `<div class="wk${d === td ? ' on' : ''}"><span class="wv">${vals[i] || ''}</span><div class="wb"><i style="height:${Math.round(vals[i] / mx * 100)}%"></i></div><span class="wl">${t.wd[new Date(d * 86400000).getUTCDay()]}</span></div>`).join('');
+  const week = days.map((d, i) => `<div class="wk${d === td ? ' on' : ''}"><span class="wv">${vals[i] || ''}</span><div class="wb"><i style="height:${Math.round(vals[i] / mx * 100)}%"></i></div><span class="wkl">${t.wd[new Date(d * 86400000).getUTCDay()]}</span></div>`).join('');
   const opts = [['all', t.all], ...CATS.map(c => [c.key, S.mode === 'jp' ? c.ja : c.ko])].map(([k, n]) => `<option value="${esc(k)}"${S.scope === k ? ' selected' : ''}>${esc(n)}</option>`).join('');
   const line = total ? (ok ? `<p class="tl ok">${esc(t.goalDone)}</p>` : `<p class="tl">${esc(t.line(done, total))}${Q.length ? ` <span>· ${esc(t.left(Q.length))}</span>` : ''}</p>`) : `<p class="tl">${esc(t.noTask)}</p>`;
-  return `<section class="panel"><div class="panel-h"><h2>${esc(t.today)}</h2><span>${esc(t.date(now.getMonth() + 1, now.getDate(), t.wd[now.getDay()]))}</span></div>
-    <div class="tm"><div class="ring${ok ? ' ok' : ''}" role="img" aria-label="${pct}%"><svg viewBox="0 0 84 84"><circle class="rb" cx="42" cy="42" r="34"/><circle class="rf" cx="42" cy="42" r="34" stroke-dasharray="${(C * pct / 100).toFixed(1)} 999" transform="rotate(-90 42 42)"${pct ? '' : ' hidden'}/></svg><span>${pct}<small>%</small></span></div>
-    <div class="stats"><div class="stat"><em>${esc(t.newW)}</em><b>${s.nd}<small> / ${s.nd + s.nl}</small></b></div><div class="stat"><em>${esc(t.rev)}</em><b>${s.rd}<small> / ${s.rd + s.rl}</small></b></div><div class="stat"><em>${ic('fire')}${esc(t.streak)}</em><b>${s.st}<small>${esc(t.dayU)}</small></b></div></div></div>
-    ${line}<div class="week" aria-hidden="true">${week}</div>
-    <label class="scope"><span>${esc(t.scope)}</span><select class="sel" data-act="scope">${opts}</select></label></section>`;
+  const stk = `${t.streak} ${s.st}${t.dayU}`;
+  return `<section class="panel tp"><div class="tm"><div class="ring${ok ? ' ok' : ''}" role="img" aria-label="${pct}%"><svg viewBox="0 0 84 84"><circle class="rb" cx="42" cy="42" r="34"/><circle class="rf" cx="42" cy="42" r="34" stroke-dasharray="${(C * pct / 100).toFixed(1)} 999" transform="rotate(-90 42 42)"${pct ? '' : ' hidden'}/></svg><span>${pct}<small>%</small></span></div>
+    <div class="tmr"><div class="tph"><h2>${esc(t.today)}</h2><span class="dt2">${esc(t.date(now.getMonth() + 1, now.getDate(), t.wd[now.getDay()]))}</span><button type="button" class="more-t" data-act="wk" aria-expanded="${!!S.wk}" aria-controls="pmore"><span>${esc(S.wk ? t.fold : t.unfold)}</span>${ic('chev')}</button></div>
+    <p class="sts"><span><em>${esc(t.newW)}</em><b class="n1">${s.nd}</b><small>/${s.nd + s.nl}</small></span><span><em>${esc(t.rev)}</em><b class="n2">${s.rd}</b><small>/${s.rd + s.rl}</small></span><span title="${esc(stk)}">${ic('fire')}<span class="vh">${esc(t.streak)}</span><b>${s.st}</b><small>${esc(t.dayU)}</small></span></p></div></div>
+    <div class="pmore" id="pmore"${S.wk ? '' : ' hidden'}>${line}<p class="wcap"><span>${esc(t.week7)}</span><span>${ic('fire')}${esc(stk)}</span></p><div class="week" aria-hidden="true">${week}</div>
+    <label class="scope"><span>${esc(t.scope)}</span><select class="sel" data-act="scope">${opts}</select></label></div></section>`;
 }
 function cardHTML() {
   const t = L(), q = Q[0], w = BY[q.id], c = P().c[q.id], isNew = q.intro || (c && c.f === today());
@@ -830,6 +849,7 @@ document.addEventListener('click', e => {
   if (a === 'say') { say(el.dataset.t, el.dataset.l); return; }
   if (a === 'mode') { if (el.blur) el.blur(); if (S.mode !== el.dataset.mode) { S.mode = el.dataset.mode; Q = null; quiz = null; resetAsk = false; LV.open.clear(); LV.shown.clear(); save(); } view = 'study'; render(); window.scrollTo(0, 0); return; }
   if (a === 'tab') { view = v; resetAsk = false; render(); window.scrollTo(0, 0); return; }
+  if (a === 'wk') { if (e.detail && el.blur) el.blur(); S.wk = !S.wk; save(); const m = $('#pmore'); if (m) m.hidden = !S.wk; el.setAttribute('aria-expanded', String(S.wk)); el.firstElementChild.textContent = S.wk ? L().fold : L().unfold; return; }
   if (a === 'row') { const id = el.dataset.id; if (LV.hide && !LV.shown.has(id)) LV.shown.add(id); else LV.open.has(id) ? LV.open.delete(id) : LV.open.add(id); rowsRender(); return; }
   let jump = false;
   if (a === 'intro-next') { introNext(); jump = true; }
